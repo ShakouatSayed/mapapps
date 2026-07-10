@@ -21,7 +21,7 @@ class _LocationTrackerState extends State<LocationTracker> {
   Timer? _timer;
 
   static const CameraPosition _initialCamera = CameraPosition(
-    target: LatLng(23.8103, 904125),
+    target: LatLng(23.8103, 90.4125),
     zoom: 15,
   );
 
@@ -82,12 +82,6 @@ class _LocationTrackerState extends State<LocationTracker> {
     );
 
     setState(() {});
-
-    @override
-    void dispose() {
-      _timer?.cancel();
-      super.dispose();
-    }
   }
 
   @override
@@ -95,6 +89,7 @@ class _LocationTrackerState extends State<LocationTracker> {
     return Scaffold(
       backgroundColor: Colors.blue,
       appBar: AppBar(
+        backgroundColor: Colors.blue,
         title: Text(
           "Real-Time Location Tracker",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -113,5 +108,12 @@ class _LocationTrackerState extends State<LocationTracker> {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    _controller?.dispose();
+    super.dispose();
   }
 }

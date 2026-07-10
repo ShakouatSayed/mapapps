@@ -64,7 +64,7 @@ class _MapScreenState extends State<MapScreen> {
               print("On taped marker Office");
             },
             infoWindow: InfoWindow(
-              title: "Home",
+              title: "Office",
               onTap: () {
                 print('On tapped Office infor Window');
               },
